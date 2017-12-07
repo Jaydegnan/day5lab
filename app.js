@@ -9,24 +9,6 @@ Test this function by hand in the console to get it working, and when you think 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Write your code here
 function sum(a,b){ //eslint-disable-line
   var addition = a + b;
@@ -64,10 +46,6 @@ Write a function called multiply() that takes in two numbers as arguments and re
 "The product of 5 and 9 is 45."
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
-
-
-
-
 
 
 
@@ -121,10 +99,6 @@ Test this function by hand in the console to get it working, and when you think 
 
 
 
-
-
-
-
 function sumAndMultiply(a,b,c){ //eslint-disable-lin  //eslint-disable-line
   var sumAB = sum(a,b);
   var sumABnumber = sumAB[0];
@@ -141,7 +115,7 @@ function sumAndMultiply(a,b,c){ //eslint-disable-lin  //eslint-disable-line
   // var sumABC = sum(sumAB, c); this is wrong
 
   var sumSentence = [];
-  var sumString = ' and  and  sum to .'
+  var sumString = ' and  and  sum to .';
   for(var i = 0; i < sumString.length; i++) {
     sumSentence.push(sumString[i]);
   }
@@ -199,7 +173,7 @@ function sumArray(testArray){ //eslint-disable-line
   }
   console.log(num);
 
-  var sentenceString = ' was passed in as an array of numbers, and  is their sum.'
+  var sentenceString = ' was passed in as an array of numbers, and  is their sum.';
   var sentenceArray = [];
   for (var a = 0; a < sentenceString.length; a++) {
     sentenceArray.push(sentenceString[a]);
@@ -213,13 +187,13 @@ function sumArray(testArray){ //eslint-disable-line
     newArray.push(testArray[b]);
   }
 
-  for (var c=0; c < sentenceArray.length; c++) {
+  for (var c = 0; c < sentenceArray.length; c++) {
     newArray.push(sentenceArray[c]);
   }
 
   console.log(newArray);
   var finalSentence = '';
-  for (var d=0; d < newArray.length; d++) {
+  for (var d = 0; d < newArray.length; d++) {
     finalSentence += newArray[d];
   }
 
@@ -247,10 +221,44 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(testArray){ //eslint-disable-line
+  var num = multiply(testArray[0], testArray[1])[0];
+  for(var i = 2; i < testArray.length; i++) {
+    num = (multiply(num, testArray[i]))[0];
+  }
+  console.log(num);
 
+  var sentenceString = 'The numbers  have a product of .';
+  var sentenceArray = [];
+  for (var a = 0; a < sentenceString.length; a++) {
+    sentenceArray.push(sentenceString[a]);
+  }
+  sentenceArray.splice(sentenceArray.length - 1, 0, num);
+
+  var newArray = [];
+  newArray.push(testArray[0]);
+  for (var b = 1; b < testArray.length; b++) {
+    newArray.push(',');
+    newArray.push(testArray[b]);
+  }
+
+  for (var c = 0; c < newArray.length; c++) {
+    sentenceArray.splice(12+c, 0, newArray[c]);
+  }
+
+  console.log(sentenceArray);
+  var finalSentence = '';
+  for (var d = 0; d < sentenceArray.length; d++) {
+    finalSentence += sentenceArray[d];
+  }
+  console.log(finalSentence);
+
+  var finalAnswer = [];
+  finalAnswer.push(num);
+  finalAnswer.push(finalSentence);
+  return finalAnswer;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(2,3,4);
+testMultiplyArray(2,3,4);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
